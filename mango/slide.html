@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+    #mainmenu{
+    	margin-top: 300px;
+         height: 54px;
+         position: absolute;
+         top:0;
+         width: 100%;
+         background-color: white;
+         transition: 0.4s;
+           display: inline-block;
+      }
+      #mainmenu>ul{
+         margin-top: 0px;
+         list-style: none;
+      }
+      #mainmenu>ul>li{
+         float: left;
+         width: 250px;
+         text-align: center;
+         position: relative;
+      }
+      #mainmenu > ul > li > a {
+          display: inline-block;
+          text-align: center;
+          width: 100%;
+          height: 56px;
+          line-height: 56px;
+          font-family: 'NanumSquare';
+          font-weight: 700;
+          color: #000000;
+          font-size: 20px;
+          text-decoration: none;
+      }
+      #mainmenu>ul>li>ul{
+         width: 100%;
+         border-top: 1px solid #c3c7c8;
+         border-left: 1px solid #eaeaea;
+         border-bottom: 1px solid #eaeaea;
+         height: 315px;
+         padding-top: 14px;
+         display:none;
+      }
+      #mainmenu > ul > li > ul > li {
+          clear: both;
+          width: 100%;
+          min-height: 32px;
+          padding: 0 20px;
+      }
+      #mainmenu > ul > li > ul > li > a {
+          display: inline-block;
+          color: #505050;
+          font-size: 12.48px;
+          width: 100%;
+          height: 32px;
+          line-height: 32px;
+          border-bottom: 1px solid #eaeaea;
+          text-align: left;
+          padding-left: 10px;
+          background-image: url("../image/sign.png");
+          background-repeat: no-repeat;
+          background-position: right -468px top -204px;
+          text-decoration: none;
+      }
+      #mainmenu ul>li>a:hover {
+         display:block;
+         color:red;
+         font-size: 21px;
+         border-bottom: 2px solid red;
+      }
+    </style>
+    <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+    $(function(){
+        $( "#mainmenu" ).mouseenter( function() {
+          $( this ).parents(".topthird").css({ top:"0"});
+          $( this ).find("ul > li > ul").css({ display:"block"});
+          $( this ).find("ul > li > ul").slideDown();
+        } );
+        
+        $( "#mainmenu" ).mouseleave( function() {
+          $( this ).find("ul > li > ul").css({ display:"block"});
+          $( this ).find("ul > li > ul").slideUp("row");
+        });
+    });
+    </script>
+</head>
+<body>
+   <div id="topthird">
+         <div class="wrapwidth">
+            <div id="mainmenu">
+               <ul >
+                  <li>
+                     <a href="https://www.gjw.co.kr/Contents/contents.php?cmsNo=DA0100">이용정보</a>
+                        <ul>   <!-- style="display: none; opacity: 1;"  -->
+                           <li style="padding: 0px 20px;">
+                              <a href="?cmsNo=DA0100">운영시간</a>
+                           </li>
+                           <li style="padding: 0px 20px;">
+                              <a href="?cmsNo=DA0200">운휴정보</a>
+                           </li>
+                           <li style="padding: 0px 20px;">
+                              <a href="?cmsNo=DA0800">이용꿀팁</a>
+                           </li>
+                           <li style="padding: 0px 20px;">
+                              <a href="?cmsNo=DA0700">찾아오시는 길</a>
+                           </li>
+                           <li style="padding: 0px 20px;">
+                              <a href="?cmsNo=DA0300">이용요금</a>
+                           </li>
+                           <li style="padding: 0px 20px;">
+                              <a href="?cmsNo=DA0400">우대프로그램</a>
+                           </li>
+                        </ul>
+                  </li>
+                  <li >
+                     <a href="https://www.gjw.co.kr/Contents/contents.php?cmsNo=DB0200">어뮤즈먼트 소개</a>
+                        <ul><!-- style="display: none; opacity: 1;"  -->
+                              <li style="padding: 0px 20px;">
+                                 <a href="?cmsNo=DB0100">추천코스</a>
+                              </li>
+                              <li style="padding: 0px 20px;">
+                                 <a href="?cmsNo=DB0200">어트랙션</a>
+                              </li>
+                              <li style="padding: 0px 20px;">
+                                 <a href="?cmsNo=DB0300">레스토랑&스낵</a>
+                              </li>
+                              <li style="padding: 0px 20px;">
+                                 <a href="?cmsNo=DB0400">부대시설</a>
+                              </li>
+                              <li style="padding: 0px 20px;">
+                                 <a href="?cmsNo=DB0500">가이드맵</a>
+                              </li>
+                        </ul>
+                  </li>
+                  <li>
+                     <a href="https://www.gjw.co.kr/Contents/contents.php?cmsNo=DC0100">공연 및 이벤트</a>
+                        <ul>
+                              <li style="padding: 0px 20px;">
+                                 <a href="?cmsNo=DC0100">추천코스</a>
+                              </li>
+                        </ul>
+                  </li>
+                  <li>
+                     <a href="https://www.gjw.co.kr/Contents/contents.php?cmsNo=DD0100">고객센터</a>
+                        <ul>
+                              <li style="padding: 0px 20px;">
+                                 <a href="?cmsNo=DD0100">공지사항</a>
+                              </li>
+                              <li style="padding: 0px 20px;">
+                                 <a href="?cmsNo=DD0400">고객소리함</a>
+                              </li>
+                              <li style="padding: 0px 20px;">
+                                 <a href="?cmsNo=DD0500">자주묻는질문</a>
+                              </li>
+                              <li style="padding: 0px 20px;">
+                                 <a href="?cmsNo=DD0600">분실물센터</a>
+                              </li>
+                        </ul>
+                  </li>
+                  <li>
+                     <a href="https://smart.gjw.co.kr/common/resMain.do">스마트할인예약</a>
+                        <ul>
+                              <li style="padding: 0px 20px;">
+                                 <a href="?cmsNo=DE0400">티켓예매</a>
+                              </li>
+                              <li style="padding: 0px 20px;">
+                                 <a href="?cmsNo=DE0200">단체예약</a>
+                              </li>
+                              <li style="padding: 0px 20px;">
+                                 <a href="?cmsNo=DE0300">연간이용</a>
+                              </li>
+                        </ul>
+                  </li>
+               </ul>
+            </div>    
+         </div>
+      </div>
+</body>
+</html>

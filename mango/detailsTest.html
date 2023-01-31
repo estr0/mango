@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../mango_css/mango_details.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script> -->
+	
+	<script>
+		/* var slider; */
+		var current_slide=0;
+		$(function(){
+			$("#input_search").click(function(){
+				$("#details_background_dark").css({ display:"block" });
+				$("#search_wrap").css({ display:"block" });
+				$("body").css("overflow-y","hidden");
+
+			});
+			$("#details_background_dark").click(function(){
+				$("#details_background_dark").css({ display:"none" });
+				$("#search_wrap").css({ display:"none" });
+				$("body").css("overflow-y","auto");
+			});
+			
+			$(".Keyword_item").click(function(){
+		 		idx = $(this).parent().find(".Keyword_item").index($(this));
+/* 		 		t_idx = $(this).parents("#search_wrap").index($(this));
+		 		console.log($(this).parents("#search_wrap").html()); */
+		 		
+		 		// idx : 0,1,2
+		 		if(idx==0) {
+					$(this).parents("#search_wrap").find("#Keyword_content_wrap").css("display","block");		 			
+					$(this).parents("#search_wrap").find("#popular_content_wrap").css("display","none");		 			
+					$(this).parents("#search_wrap").find("#lately_content_wrap").css("display","none");		 			
+		 		} else if(idx==1) {
+					$(this).parents("#search_wrap").find("#Keyword_content_wrap").css("display","none");		 			
+					$(this).parents("#search_wrap").find("#popular_content_wrap").css("display","block");		 			
+					$(this).parents("#search_wrap").find("#lately_content_wrap").css("display","none");		 			
+		 		} else if(idx==2) {
+					$(this).parents("#search_wrap").find("#Keyword_content_wrap").css("display","none");		 			
+					$(this).parents("#search_wrap").find("#popular_content_wrap").css("display","none");		 			
+					$(this).parents("#search_wrap").find("#lately_content_wrap").css("display","block");		 			
+		 		}
+		 		
+				$(this).parent().find(".Keyword_item").each(function(K_idx,obj) {
+		 			if(idx==K_idx) {
+						$(this).addClass('Keyword_item_Active');
+					} else {
+						$(this).removeClass('Keyword_item_Active');
+					}
+		 		});
+		 	});
+			$(".menu_img").click(function(){
+				idx = $(".menu_img").index($(this));
+				
+				$(".menu_img_big").css({ display:"block"});
+				$(".black_screen").css({ display:"block"});
+				
+ 				$(document).ready(function(){
+				      slider=$(".menu_img_big .img_area_img").bxSlider({
+				        speed: 500,        // 이동 속도를 설정
+				        moveSlides: 1,     // 슬라이드 이동시 개수
+				        minSlides: 1,      // 최소 노출 개수
+				        maxSlides: 1,      // 최대 노출 개수
+				        slideWidth: 1017,
+				        pager: false,
+						onSlideNext: function($slideElement, oldIndex, newIndex) {
+							/* alert(" -> p." + newIndex); */
+							current_slide = newIndex;
+			 				$(".menu_img_big .img_area_small_img_dark").each(function(p_idx,obj) {
+								if(current_slide==p_idx) {
+									$(this).addClass('on');
+								}else{
+									$(this).removeClass('on');
+								}
+							});
+						},
+						onSlidePrev: function($slideElement, oldIndex, newIndex) {
+							/* alert(" -> p." + newIndex); */
+							current_slide = newIndex;
+			 				$(".menu_img_big .img_area_small_img_dark").each(function(p_idx,obj) {
+								if(current_slide==p_idx) {
+									$(this).addClass('on');
+								}else{
+									$(this).removeClass('on');
+								}
+							});
+						}
+
+				     });
+				});
+ 				
+				$(".menu_img_big .img_area_small_img_dark").each(function(p_idx,obj) {
+					//console.log($(this).parent().html());    
+					if(idx==p_idx) {
+						/* alert("p_idx : " + p_idx); */
+						$(this).addClass('on');
+					}else{
+						$(this).removeClass('on');
+					}
+				});
+			});		
+			
+   			
+			$(".img_left").click(function(){
+				idx = $(".img_left").index($(this));
+				
+				$(".main_review_img_big").css({ display:"block"});
+				$(".black_screen").css({ display:"block"});
+
+				$(document).ready(function(){
+				      slider=$(".main_review_img_big .img_area_img").bxSlider({
+				        speed: 500,        // 이동 속도를 설정
+				        moveSlides: 1,     // 슬라이드 이동시 개수
+				        minSlides: 1,      // 최소 노출 개수
+				        maxSlides: 1,      // 최대 노출 개수
+				        slideWidth: 1017,
+				        pager: false,
+				        onSlideNext: function($slideElement, oldIndex, newIndex) {
+							/* alert(" -> p." + newIndex); */
+							current_slide = newIndex;
+			 				$(".main_review_img_big .img_area_small_img_dark").each(function(p_idx,obj) {
+								if(current_slide==p_idx) {
+									$(this).addClass('on');
+								}else{
+									$(this).removeClass('on');
+								}
+							});
+						},
+						onSlidePrev: function($slideElement, oldIndex, newIndex) {
+							/* alert(" -> p." + newIndex); */
+							current_slide = newIndex;
+			 				$(".main_review_img_big .img_area_small_img_dark").each(function(p_idx,obj) {
+								if(current_slide==p_idx) {
+									$(this).addClass('on');
+								}else{
+									$(this).removeClass('on');
+								}
+							});
+						}
+				      });
+				});
+				
+				$(".main_review_img_big .img_area_small_img_dark").each(function(p_idx,obj) {
+					//console.log($(this).parent().html());    
+					if(idx==p_idx) {
+						/* alert("p_idx : " + p_idx); */
+						$(this).addClass('on');
+					}else{
+						$(this).removeClass('on');
+					}
+				});
+			});
+
+			$(".close_button").click(function(){
+				$(".menu_img_big").css({ display:"none"});
+				$(".main_review_img_big").css({ display:"none"});
+				$(".black_screen").css({ display:"none"});
+			});
+			$(".black_screen").click(function(){
+				$(".menu_img_big").css({ display:"none"});
+				$(".main_review_img_big").css({ display:"none"});
+				$(".black_screen").css({ display:"none"});
+			});
+			$("#Keyword_content_wrap").mouseenter(function(){
+				$("#Keyword_content_wrap").css('overflow-y', 'scroll');
+			});
+			$("#Keyword_content_wrap").mouseleave(function(){
+				$("#Keyword_content_wrap").css('overflow-y', 'hidden');
+			});
+			$("#popular_content_wrap").mouseenter(function(){
+				$("#popular_content_wrap").css('overflow-y', 'scroll');
+			});
+			$("#popular_content_wrap").mouseleave(function(){
+				$("#popular_content_wrap").css('overflow-y', 'hidden');
+			});
+			$("#lately_content_wrap").mouseenter(function(){
+				$("#lately_content_wrap").css('overflow-y', 'scroll');
+			});
+			$("#lately_content_wrap").mouseleave(function(){
+				$("#lately_content_wrap").css('overflow-y', 'hidden');
+			});
+/*  			$(".img_area_left_button_Active").mouseenter(function(){
+					$(this).removeClass("img_area_left_button");
+			});
+		 	$(".img_area_left_button_Active").mouseleave(function(){
+				$(this).addClass("img_area_left_button");
+			});
+ 			$(".img_area_right_button_Active").mouseenter(function(){
+				$(this).removeClass("img_area_right_button");
+			});
+		 	$(".img_area_right_button_Active").mouseleave(function(){
+				$(this).addClass("img_area_right_button");
+			}); */
+
+		});
+
+	</script>
+</head>
+<body>
+		<!-- 상단 바 -->
+	<div id="div_header">
+		<div class="fl">
+			<a href="https://www.mangoplate.com/">
+				<img id="img_logo" src="../Images/img_logo.png">
+			</a>
+		</div>
+		<div class="fl">
+			<img id="img_search" src="../Images/icon_search.png">
+			<label for="input_search" style="width:500px;">
+				<input type="text" id="input_search" style="width:500px;" placeholder="지역, 식당 또는 음식"/>
+			</label>
+		</div>
+		<div class="fr header_right"><img class ="UserProfileButton__PersonIcon" src="../Images/icon_user.png"></div>
+		<a href = "https://www.mangoplate.com/mango_picks"><div class="fr header_right"><span>망고 스토리</span></div></a>
+		<a href = "https://www.mangoplate.com/top_lists"><div class="fr header_right"><span>맛집 리스트</span></div></a>
+		<a href = "https://www.mangoplate.com/eat_deals"><div class="fr header_right"><span>EAT딜</span></div></a>
+		<div style="clear:both;"></div>
+	</div>
+	<div id="details_background_dark"></div>
+		<div id="search_wrap">
+			<div id="Keyword_items_wrap">
+				<div class="Keyword_items_list">
+					<div class="Keyword_item Keyword_item_Active">추천 검색어</div>
+					<div class="Keyword_item">인기 검색어</div>
+					<div class="Keyword_item">최근 검색어</div>
+				</div>
+			</div>
+			<div id="Keyword_content_wrap">
+				<div class="Keyword_content_items">
+					<a href="https://www.mangoplate.com/search/%EA%B0%95%EB%82%A8%EC%97%AD">
+						<div class="search_img"></div>
+						<div class="Keyword_contents">강남역</div>
+					</a>
+				</div>
+				<div class="Keyword_content_items">
+					<a href="https://www.mangoplate.com/search/%EC%9A%A9%EB%A6%AC%EB%8B%A8%EA%B8%B8">
+						<div class="search_img"></div>
+						<div class="Keyword_contents">용리단길</div>
+					</a>
+				</div>
+				<div class="Keyword_content_items">	
+					<a href="https://www.mangoplate.com/search/%EC%9C%A0%ED%8A%9C%EB%B2%84%EC%B6%94%EC%B2%9C">
+						<div class="search_img"></div>
+						<div class="Keyword_contents">유튜버추천</div>
+					</a>
+				</div>
+				<div class="Keyword_content_items">
+					<a href="https://www.mangoplate.com/search/%EC%8B%A0%EC%B4%8C">
+						<div class="search_img"></div>
+						<div class="Keyword_contents">신촌</div>
+					</a>
+				</div>
+				<div class="Keyword_content_items">
+					<a href="https://www.mangoplate.com/search/%EC%B0%B8%EC%B9%98">
+						<div class="search_img"></div>
+						<div class="Keyword_contents">참치</div>
+					</a>
+				</div>
+				<div class="Keyword_content_items">
+					<a href="https://www.mangoplate.com/search/%EC%84%B1%EC%88%98">
+						<div class="search_img"></div>
+						<div class="Keyword_contents">성수</div>
+					</a>
+				</div>
+				<div class="Keyword_content_items">
+					<a href="https://www.mangoplate.com/search/%EC%99%80%EC%9D%B8">
+						<div class="search_img"></div>
+						<div class="Keyword_contents">와인</div>
+					</a>
+				</div>
+			</div>
+			<div id="popular_content_wrap">
+				<div class="Keyword_content_items">
+					<a href="https://www.mangoplate.com/search/%ED%99%8D%EB%8C%80">
+						<div class="search_img"></div>
+						<div class="Keyword_contents">홍대</div>
+					</a>
+				</div>
+				<div class="Keyword_content_items">
+					<a href="https://www.mangoplate.com/search/%EC%9D%B4%ED%83%9C%EC%9B%90">
+						<div class="search_img"></div>
+						<div class="Keyword_contents">이태원</div>
+					</a>
+				</div>
+				<div class="Keyword_content_items">	
+					<a href="https://www.mangoplate.com/search/%EC%8B%A0%EC%B4%8C">
+						<div class="search_img"></div>
+						<div class="Keyword_contents">신촌</div>
+					</a>
+				</div>
+				<div class="Keyword_content_items">
+					<a href="https://www.mangoplate.com/search/%EA%B0%95%EB%82%A8%EC%97%AD">
+						<div class="search_img"></div>
+						<div class="Keyword_contents">강남역</div>
+					</a>
+				</div>
+				<div class="Keyword_content_items">
+					<a href="https://www.mangoplate.com/search/%EA%B0%80%EB%A1%9C%EC%88%98%EA%B8%B8">
+						<div class="search_img"></div>
+						<div class="Keyword_contents">가로수길</div>
+					</a>
+				</div>
+				<div class="Keyword_content_items">
+					<a href="https://www.mangoplate.com/search/%ED%8F%89%ED%83%9D%EC%8B%9C">
+						<div class="search_img"></div>
+						<div class="Keyword_contents">평택시</div>
+					</a>
+				</div>
+				<div class="Keyword_content_items">
+					<a href="https://www.mangoplate.com/search/%EB%B0%A9%EB%B0%B0">
+						<div class="search_img"></div>
+						<div class="Keyword_contents">방배</div>
+					</a>
+				</div>
+			</div>
+			<div id="lately_content_wrap">
+				<div class="Keyword_content_items">
+						<div class="lately_Keyword_none">최근 검색어가 없습니다.</div>
+				</div>
+			</div>
+			<div class="scroll">
+				<div class="scroll_item"></div>
+			</div>
+		</div>
+	<div id = "div_img">
+		<div class="fl"><img class="img_left" src="https://mp-seoul-image-production-s3.mangoplate.com/87430/59_1491141169295_9384?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"></div>
+		<div class="fl"><img class="img_left" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354631132577.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"></div>
+		<div class="fl"><img class="img_left" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633101170.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"></div>
+		<div class="fl"><img class="img_left" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633728158.jpg"></div>
+		<div class="fl"><img class="img_left" src="https://mp-seoul-image-production-s3.mangoplate.com/1104193_1662643753780984.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"></div>
+		<div class="hide_text"><p class="txt"> 사진 더보기  </p><div class="allow-white"></div></div>
+		<div style="clear:both;"></div>
+	</div>
+	<div class="main_review_img_big">
+		<div class="img_area">
+			<div class="img_area_wrap">
+				<div class="img_area_img">
+					<div><img src="https://mp-seoul-image-production-s3.mangoplate.com/87430/59_1491141169295_9384"></div>
+					<div><img src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354631132577.jpg"></div>
+					<div><img src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633101170.jpg"></div>
+					<div><img src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633728158.jpg"></div>
+					<div><img src="https://mp-seoul-image-production-s3.mangoplate.com/1104193_1662643753780984.jpg"></div>
+				</div>
+				<div class="img_area_button">
+<!-- 					<img src="../Images/icon_left.png">
+					<img src="../Images/icon_right.png"> -->
+				</div>
+				<div class="img_area_small">
+					<div class="img_area_small_img">
+					 	<div class="fl img_area_small_img_dark" style="background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/87430/59_1491141169295_9384?fit=around|66:68&crop=66:68;*,*&output-format=jpg&output-quality=80);"></div>
+					 	<div class="fl img_area_small_img_dark" style="background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354631132577.jpg?fit=around|66:68&crop=66:68;*,*&output-format=jpg&output-quality=80);"></div>
+					 	<div class="fl img_area_small_img_dark" style="background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633101170.jpg?fit=around|66:68&crop=66:68;*,*&output-format=jpg&output-quality=80);"></div>
+					 	<div class="fl img_area_small_img_dark" style="background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633728158.jpg?fit=around|66:68&crop=66:68;*,*&output-format=jpg&output-quality=80);"></div>
+					 	<div class="fl img_area_small_img_dark" style="background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/1104193_1662643753780984.jpg?fit=around|66:68&crop=66:68;*,*&output-format=jpg&output-quality=80);"></div>
+						<div style="clear:both"></div>
+					</div>
+				</div>
+			</div>
+			<div class="img_area_content">
+				<div class="img_area_content_title"><span>농민백암왕순대</span></div>
+				<div class="img_area_content_content">
+					<div>망플1위 순대국을 믿고 갔습니당 2호선 강남역에서는 조금 거리가 있습니다 분당선쪽에 있어용 여름에는 걷기 조금 더울 것 같습니다 강남에서 순대국은 처음 먹어봤는데 맛있었습니당 순댓국에서 특별함은 잘 모르겠으나 국물이 깔끔하고 고기양이 매우 많은 것은 좋았어용 두둑하게 한끼 식사를 적당한 가격에 할 수 있다는 장점이 있습니다 음식이 빨리 나오고 혼자 드시는 분들도 많아서 강남에서 혼밥하기도 괜찮은 장소인 것 같습니당</div>
+					<div>2019-07-24</div>
+				</div>
+			</div>
+			<div class="close_button"></div>
+		</div>
+	</div>
+	<div class="black_screen"></div>
+	<!-- inner 만들기-->
+	<!-- <div class="fl"></div> -->
+	<!-- column-contents in -->
+	<div id= "column-contents">
+		<!-- title in -->
+		<div class="fl title">
+			<div class="title_header">
+				<!-- detail in -->
+				<div class="fl restaurant_detail">
+					<h1 class="fl restaurant_name">농민백암왕순대</h1>
+					<strong class="fl score">
+						<span>4.6</span>
+					</strong>
+					<div style="clear:both;"></div>
+					<p class="branch">강남역점</p>
+		
+		            <!-- count in -->
+					<div id="status">
+						<div class="fl count"><img src="../Images/icon_hitcount.png"> 502,342</div>
+						<div class="fl count"><img src="../Images/icon_review_count.png"> 270</div>
+						<div class="fl count"><img src="../Images/icon_wannago_count.png"> 8,511</div>
+					</div>	
+					<div style="clear:both;"></div>
+					<!-- count out -->
+				</div>
+				<!-- button in -->
+				<div class="fr button">
+	               	<!-- <button class="restaurant_wannago_button"> -->
+	             	<img id= "wannago_button" src="../Images/icon_wannago.png"/><br/>
+	             	<span id="wannago">가고싶다</span>
+	               	<!-- </button> -->
+				</div>
+				<div class= "fr button">
+	               	<!-- <button class="restaurant_writer_button"> -->
+	               	<div class="writer_button">
+	               		<a href="mango_review.html">
+	               			<img class= "writer_button1" src="../Images/icon_writer.png"/>
+	               			<img class= "writer_button2" src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/review_writing_active_icon2.png"/>
+	               		</a>
+	               	</div>
+	               	<span id="writer">리뷰쓰기</span>
+	               	<!-- </button> -->
+	            </div>
+	            <div style="clear:both;"></div>
+				<!-- button out -->
+				<div>
+					<div class="line"></div>
+					<!-- table in -->
+					<div class="detail_table">
+						<table>
+							<tr>
+								<th>주소</th>
+								<td>서울특별시 강남구 역삼로3길 20-4<br/>
+									<span class="jibun_address_icon">지번</span>
+									<span class="jibun_address">서울시 강남구 역삼동 830-9</span>
+								</td>
+							</tr>
+							<tr>
+								<th>전화번호</th>
+								<td>02-501-2772</td>
+							</tr>
+							<tr>
+								<th>음식 종류</th>
+								<td>탕 / 찌개 / 전골</td>
+							</tr>
+							<tr>
+								<th>가격대</th>
+								<td>만원-2만원</td>
+							</tr>
+							<tr>
+								<th>주차</th>
+								<td>주차공간없음</td>
+							</tr>
+							<tr>
+								<th>영업시간</th>
+								<td>월-금: 11:10 - 21:00<br/>
+									토: 11:10 - 15:30
+								</td>
+							</tr>
+							<tr>
+								<th>휴일</th>
+								<td>일</td>
+							</tr>
+							<tr>
+								<th>메뉴</th>
+								<td>
+									<ul>
+										<li class="menu_list">
+											<span class="menu">국밥</span>
+											<span class="fr">8,000</span>
+										</li>
+										<li class="menu_list">
+											<span class="menu">수육</span>
+											<span class="fr">28,000</span>
+										</li>
+										<li class="menu_list">										
+											<span class="menu">술국</span>
+											<span class="fr">17,000</span>
+										</li>
+										<li>										
+											<span class="menu">토종순대</span>
+											<span class="fr">10,000</span>
+										</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<th></th>
+								<td>
+									<div>	<!-- 메뉴판이미지 -->
+										<img class="fl menu_img" src="../Images/gangnam_nongminbackamwongsundae_menu.jpg">
+										<img class="fl menu_img" src="../Images/gangnam_nongminbackamwongsundae_menu2.jpg">
+									</div>
+								</td>
+								<div style="clear:both;"></div>
+							</tr>
+						</table>
+					</div>	<!-- table out -->
+					<div class="menu_img_big">
+						<div class="img_area">
+							<div class="img_area_wrap">
+								<div class="img_area_img">
+									<div><img src="https://mp-seoul-image-production-s3.mangoplate.com/880102_1563973615617631.jpg"></div>
+									<div><img src="https://mp-seoul-image-production-s3.mangoplate.com/785049_1550400157438828.jpg"></div>
+								</div>
+								<div class="img_area_button">
+<!-- 									<div class ="img_area_left_button img_area_left_button_Active"></div>
+									<div class ="img_area_right_button img_area_right_button_Active"></div>
+ -->									<!-- <img src="../Images/icon_left.png">
+									<img src="../Images/icon_right.png"> -->
+								</div>
+								<div class="img_area_small">
+									<div class="img_area_small_img">
+									 	<div class="fl img_area_small_img_dark" style="background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/880102_1563973615617631.jpg?fit=around|66:68&crop=66:68;*,*&output-format=jpg&output-quality=80);"></div>
+									 	<div class="fl img_area_small_img_dark" style="background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/785049_1550400157438828.jpg?fit=around|66:68&crop=66:68;*,*&output-format=jpg&output-quality=80);"></div>
+									</div>
+								</div>
+							</div>
+							<div class="img_area_content">
+								<div class="img_area_content_title"><span>농민백암왕순대</span></div>
+								<div class="img_area_content_content">
+									<div>망플1위 순대국을 믿고 갔습니당 2호선 강남역에서는 조금 거리가 있습니다 분당선쪽에 있어용 여름에는 걷기 조금 더울 것 같습니다 강남에서 순대국은 처음 먹어봤는데 맛있었습니당 순댓국에서 특별함은 잘 모르겠으나 국물이 깔끔하고 고기양이 매우 많은 것은 좋았어용 두둑하게 한끼 식사를 적당한 가격에 할 수 있다는 장점이 있습니다 음식이 빨리 나오고 혼자 드시는 분들도 많아서 강남에서 혼밥하기도 괜찮은 장소인 것 같습니당</div>
+									<div>2019-07-24</div>
+								</div>
+							</div>
+							<div class="close_button"></div>
+						</div>
+					</div>
+					<div class="black_screen"></div>
+					<p class="update_date"> 업데이트 : 2021. 2. 1 </p>
+					<div class="line"></div>	<!-- 선나누기 -->
+				<!-- 리뷰 시작 -->
+				</div>	<!-- detail out -->
+			</div> <!-- title herder out -->
+			<div class="title_header2">
+				<div class="review_table">
+					<div class="review_list">
+						<span class="review_title">리뷰</span>
+						<span class="review_count">(270)</span>
+						<span class="fr review_tasty_bad">별로다 (10)</span>
+						<span class="fr review_tasty_like">괜찮다 (22)</span>
+						<span class="fr review_tasty_like">맛있다 (238)</span>
+						<span class="fr review_tasty_like">전체 (270)</span>
+					</div>
+				</div>
+				<div class="review_content_list">
+					<div class="fl review_user">
+						<div><img class="user_img" src="../Images/user_junyuong.jpg"></div>
+						<div class="user_name">준영</div>
+						<div class="fl user_write_count"><img class="user_write_img" src="../Images/icon_review_count.png">4389</div>
+						<div class="fl user_follow_count"><img class="user_follow_img" src="../Images/user_follow_img.png">1330</div>
+						<div style="clear:both;"></div>
+						<div class="user_level"><img class="user_level_img" src="../Images/user_level.png"></div>
+					</div>
+					<div class="fl review_content">
+						<div class="user_review_writedate">2022-09-28</div>
+						<p class="user_review">오랜만에 다시 찾은 농민백암순대! 주말 점심 12시 좀 전에 방문했는데 웨이팅이 6팀 있었어요. 다행히 10~20분 안에 들어갈 수 있었답니다. 2인이었는데도 2인 테이블에 좁게 안앉히고 4인 테이블에 넉넉하게 앉혀주셔서 좋았어요. 앞치마도 먼저 챙겨주시고ㅎㅎ 순대국은 정식 안된대서 특으로 먹었는데 고기가 정말 바텀리스..! 순대가 쪼그맣게 4피스인건 조금 아쉬웠지만 부들부들 맛있는 고기가 가득해서 너무 좋았어요. 여기는 언제 먹어도 너무 맛있는 듯ㅎㅎㅎ</p>
+						<div class="user_review_img_list">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354631132577.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633101170.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633728158.jpg">
+						</div>
+					</div>
+					<div class="fl review_score">
+						<img class="icon_tasty_like" src="../Images/icon_tasty_good.png">
+						<div class="user_review_like">맛있다</div>
+					</div>
+					<div style="clear:both; min-height:0 !important; height:0; border:none;"></div>
+				</div>	<!-- 리뷰끝 -->
+				<div class="review_content_list">
+					<div class="fl review_user">
+						<div><img class="user_img" src="../Images/user_junyuong.jpg"></div>
+						<div class="user_name">준영</div>
+						<div class="fl user_write_count"><img class="user_write_img" src="../Images/icon_review_count.png">4389</div>
+						<div class="fl user_follow_count"><img class="user_follow_img" src="../Images/user_follow_img.png">1330</div>
+						<div style="clear:both;"></div>
+						<div class="user_level"><img class="user_level_img" src="../Images/user_level.png"></div>
+					</div>
+					<div class="fl review_content">
+						<div class="user_review_writedate">2022-09-28</div>
+						<p class="user_review">오랜만에 다시 찾은 농민백암순대! 주말 점심 12시 좀 전에 방문했는데 웨이팅이 6팀 있었어요. 다행히 10~20분 안에 들어갈 수 있었답니다. 2인이었는데도 2인 테이블에 좁게 안앉히고 4인 테이블에 넉넉하게 앉혀주셔서 좋았어요. 앞치마도 먼저 챙겨주시고ㅎㅎ 순대국은 정식 안된대서 특으로 먹었는데 고기가 정말 바텀리스..! 순대가 쪼그맣게 4피스인건 조금 아쉬웠지만 부들부들 맛있는 고기가 가득해서 너무 좋았어요. 여기는 언제 먹어도 너무 맛있는 듯ㅎㅎㅎ</p>
+						<div class="user_review_img_list">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354631132577.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633101170.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633728158.jpg">
+						</div>
+					</div>
+					<div class="fl review_score">
+						<img class="icon_tasty_like" src="../Images/icon_tasty_good.png">
+						<div class="user_review_like">맛있다</div>
+					</div>
+					<div style="clear:both; min-height:0 !important; height:0; border:none;"></div>
+				</div>	<!-- 리뷰끝 -->
+				<div class="review_content_list">
+					<div class="fl review_user">
+						<div><img class="user_img" src="../Images/user_junyuong.jpg"></div>
+						<div class="user_name">준영</div>
+						<div class="fl user_write_count"><img class="user_write_img" src="../Images/icon_review_count.png">4389</div>
+						<div class="fl user_follow_count"><img class="user_follow_img" src="../Images/user_follow_img.png">1330</div>
+						<div style="clear:both;"></div>
+						<div class="user_level"><img class="user_level_img" src="../Images/user_level.png"></div>
+					</div>
+					<div class="fl review_content">
+						<div class="user_review_writedate">2022-09-28</div>
+						<p class="user_review">오랜만에 다시 찾은 농민백암순대! 주말 점심 12시 좀 전에 방문했는데 웨이팅이 6팀 있었어요. 다행히 10~20분 안에 들어갈 수 있었답니다. 2인이었는데도 2인 테이블에 좁게 안앉히고 4인 테이블에 넉넉하게 앉혀주셔서 좋았어요. 앞치마도 먼저 챙겨주시고ㅎㅎ 순대국은 정식 안된대서 특으로 먹었는데 고기가 정말 바텀리스..! 순대가 쪼그맣게 4피스인건 조금 아쉬웠지만 부들부들 맛있는 고기가 가득해서 너무 좋았어요. 여기는 언제 먹어도 너무 맛있는 듯ㅎㅎㅎ</p>
+						<div class="user_review_img_list">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354631132577.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633101170.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633728158.jpg">
+						</div>
+					</div>
+					<div class="fl review_score">
+						<img class="icon_tasty_like" src="../Images/icon_tasty_good.png">
+						<div class="user_review_like">맛있다</div>
+					</div>
+					<div style="clear:both; min-height:0 !important; height:0; border:none;"></div>
+				</div>	<!-- 리뷰끝 -->
+				<div class="review_content_list">
+					<div class="fl review_user">
+						<div><img class="user_img" src="../Images/user_junyuong.jpg"></div>
+						<div class="user_name">준영</div>
+						<div class="fl user_write_count"><img class="user_write_img" src="../Images/icon_review_count.png">4389</div>
+						<div class="fl user_follow_count"><img class="user_follow_img" src="../Images/user_follow_img.png">1330</div>
+						<div style="clear:both;"></div>
+						<div class="user_level"><img class="user_level_img" src="../Images/user_level.png"></div>
+					</div>
+					<div class="fl review_content">
+						<div class="user_review_writedate">2022-09-28</div>
+						<p class="user_review">오랜만에 다시 찾은 농민백암순대! 주말 점심 12시 좀 전에 방문했는데 웨이팅이 6팀 있었어요. 다행히 10~20분 안에 들어갈 수 있었답니다. 2인이었는데도 2인 테이블에 좁게 안앉히고 4인 테이블에 넉넉하게 앉혀주셔서 좋았어요. 앞치마도 먼저 챙겨주시고ㅎㅎ 순대국은 정식 안된대서 특으로 먹었는데 고기가 정말 바텀리스..! 순대가 쪼그맣게 4피스인건 조금 아쉬웠지만 부들부들 맛있는 고기가 가득해서 너무 좋았어요. 여기는 언제 먹어도 너무 맛있는 듯ㅎㅎㅎ</p>
+						<div class="user_review_img_list">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354631132577.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633101170.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633728158.jpg">
+						</div>
+					</div>
+					<div class="fl review_score">
+						<img class="icon_tasty_like" src="../Images/icon_tasty_good.png">
+						<div class="user_review_like">맛있다</div>
+					</div>
+					<div style="clear:both; min-height:0 !important; height:0; border:none;"></div>
+				</div>	<!-- 리뷰끝 -->
+				<div class="review_content_list">
+					<div class="fl review_user">
+						<div><img class="user_img" src="../Images/user_junyuong.jpg"></div>
+						<div class="user_name">준영</div>
+						<div class="fl user_write_count"><img class="user_write_img" src="../Images/icon_review_count.png">4389</div>
+						<div class="fl user_follow_count"><img class="user_follow_img" src="../Images/user_follow_img.png">1330</div>
+						<div style="clear:both;"></div>
+						<div class="user_level"><img class="user_level_img" src="../Images/user_level.png"></div>
+					</div>
+					<div class="fl review_content">
+						<div class="user_review_writedate">2022-09-28</div>
+						<p class="user_review">오랜만에 다시 찾은 농민백암순대! 주말 점심 12시 좀 전에 방문했는데 웨이팅이 6팀 있었어요. 다행히 10~20분 안에 들어갈 수 있었답니다. 2인이었는데도 2인 테이블에 좁게 안앉히고 4인 테이블에 넉넉하게 앉혀주셔서 좋았어요. 앞치마도 먼저 챙겨주시고ㅎㅎ 순대국은 정식 안된대서 특으로 먹었는데 고기가 정말 바텀리스..! 순대가 쪼그맣게 4피스인건 조금 아쉬웠지만 부들부들 맛있는 고기가 가득해서 너무 좋았어요. 여기는 언제 먹어도 너무 맛있는 듯ㅎㅎㅎ</p>
+						<div class="user_review_img_list">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354631132577.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633101170.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633728158.jpg">
+						</div>
+					</div>
+					<div class="fl review_score">
+						<img class="icon_tasty_like" src="../Images/icon_tasty_good.png">
+						<div class="user_review_like">맛있다</div>
+					</div>
+					<div style="clear:both; min-height:0 !important; height:0; border:none;"></div>
+				</div>	<!-- 리뷰끝 -->
+				<div class="review_content_list">
+					<div class="fl review_user">
+						<div><img class="user_img" src="../Images/user_junyuong.jpg"></div>
+						<div class="user_name">준영</div>
+						<div class="fl user_write_count"><img class="user_write_img" src="../Images/icon_review_count.png">4389</div>
+						<div class="fl user_follow_count"><img class="user_follow_img" src="../Images/user_follow_img.png">1330</div>
+						<div style="clear:both;"></div>
+						<div class="user_level"><img class="user_level_img" src="../Images/user_level.png"></div>
+					</div>
+					<div class="fl review_content">
+						<div class="user_review_writedate">2022-09-28</div>
+						<p class="user_review">오랜만에 다시 찾은 농민백암순대! 주말 점심 12시 좀 전에 방문했는데 웨이팅이 6팀 있었어요. 다행히 10~20분 안에 들어갈 수 있었답니다. 2인이었는데도 2인 테이블에 좁게 안앉히고 4인 테이블에 넉넉하게 앉혀주셔서 좋았어요. 앞치마도 먼저 챙겨주시고ㅎㅎ 순대국은 정식 안된대서 특으로 먹었는데 고기가 정말 바텀리스..! 순대가 쪼그맣게 4피스인건 조금 아쉬웠지만 부들부들 맛있는 고기가 가득해서 너무 좋았어요. 여기는 언제 먹어도 너무 맛있는 듯ㅎㅎㅎ</p>
+						<div class="user_review_img_list">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354631132577.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633101170.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80">
+							<img class= "user_review_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1664354633728158.jpg">
+						</div>
+					</div>
+					<div class="fl review_score">
+						<img class="icon_tasty_like" src="../Images/icon_tasty_good.png">
+						<div class="user_review_like">맛있다</div>
+					</div>
+					<div style="clear:both; min-height:0 !important; height:0; border:none;"></div>
+				</div>	<!-- 리뷰끝 -->
+				<div id="more_list"> 
+					<!-- <div class="icon_more"> --><img class="fl icon_more1" src="../Images/icon_more.png"><!-- </div> -->
+					<div class="fl more">더보기</div>
+					<!-- <div class="icon_more"> --><img class="fl icon_more2" src="../Images/icon_more.png"><!-- </div> -->
+					<div style="clear:both;"></div>
+				</div>
+			</div><!-- header2 out -->
+			<!-- header3 in -->
+			<div class="title_header3">
+				<!-- best 시작 -->
+				<div class="best_restaurant_title"><a href="https://www.mangoplate.com/search/%EA%B0%95%EB%82%A8%EC%97%AD%20%EB%A7%9B%EC%A7%91%20%EB%B2%A0%EC%8A%A4%ED%8A%B8%2080%EA%B3%B3">강남역 맛집 베스트 80곳</a>에 있는 다른 식당</div>
+				<div class="best_restaurants_list">
+					<div class="fl best_restaurant_content1">
+						<a href="http://localhost:9090/WebProject1/mango.html">
+							<img class="best_restaurant_img" src="https://mp-seoul-image-production-s3.mangoplate.com/87430/1088850_1655981399557_52866?fit=around|383:383&crop=383:383;*,*&output-format=jpg&output-quality=80">
+							<div class="best_restaurant_name">
+								<span class="best_name">농민백암왕순대</span>
+								<strong class="best_score">4.6</strong>
+								<div class="best_category">강남역 - 탕 / 찌개 / 전골</div>
+							</div>
+						</a>	
+					</div>
+					<div class="fl best_restaurant_content2">
+						<a href="https://www.mangoplate.com/restaurants/DM2xUaLRreaa">
+							<img class="best_restaurant_img" src="https://mp-seoul-image-production-s3.mangoplate.com/47875_1643785969772500.jpg?fit=around|383:383&crop=383:383;*,*&output-format=jpg&output-quality=80">
+							<div class="best_restaurant_name">
+								<span class="best_name">꼼다비뛰드</span>
+								<strong class="best_score">4.5</strong>
+								<div class="best_category">강남역 - 베이커리</div>
+							</div>
+						</a>	
+					</div>
+					<div class="fl best_restaurant_content1">
+						<a href="https://www.mangoplate.com/restaurants/51t4XhhxEGpT">
+							<img class="best_restaurant_img" src="https://mp-seoul-image-production-s3.mangoplate.com/452637/652152_1662421644773_16878?fit=around|383:383&crop=383:383;*,*&output-format=jpg&output-quality=80">
+							<div class="best_restaurant_name">
+								<span class="best_name">반티엔야오카오위</span>
+								<strong class="best_score">4.5</strong>
+								<div class="best_category">강남역 - 기타중식</div>
+							</div>
+						</a>	
+					</div>
+					<div class="fl best_restaurant_content2">
+						<a href="https://www.mangoplate.com/restaurants/z-4tCw3TKCKn">
+							<img class="best_restaurant_img" src="https://mp-seoul-image-production-s3.mangoplate.com/341739_1620863498562512.jpg?fit=around|383:383&crop=383:383;*,*&output-format=jpg&output-quality=80">
+							<div class="best_restaurant_name">
+								<span class="best_name">육전식당</span>
+								<strong class="best_score">4.4</strong>
+								<div class="best_category">역삼/선릉 - 고기요리</div>
+							</div>
+						</a>	
+					</div>
+					<div style="clear:both;"></div>
+				</div>	<!-- best out -->
+				<div id="related_top">
+					<div class="related_top_title">관련 TOP 리스트</div>
+					<div>
+						<div class="related_top_list">
+							<div class="related_top_item">							
+								<div class="fl related_top_content1">
+									<a href="https://www.mangoplate.com/top_lists/WY7HXPG">
+										<div class="dark"></div>
+										<div class="image_below_dark"></div>
+										<div class="related_top_content_title">2022 한식 인기 맛집 TOP 100</div>
+										<div class="related_top_content_content">"망고플레이트가 선정한 2022년에 꼭 가봐야 <br/>할 한식 인기 맛집"</div>
+									</a>
+								</div>
+								<div class="fl related_top_content2">
+									<a href="https://www.mangoplate.com/top_lists/-5LLZMO">
+										<div class="dark"></div>
+										<div class="image_below_dark"></div>
+										<div class="related_top_content_title">2021 한식 인기 맛집 TOP 100</div>
+										<div class="related_top_content_content">"망고플레이트가 선정한 2021년에 꼭 가봐야 <br/>할 한식 인기 맛집"</div>
+									</a>
+								</div>
+								<div style="clear:both;"></div>
+							</div>	
+							<div class="related_top_item">							
+								<div class="fl related_top_content3">
+									<a href="https://www.mangoplate.com/top_lists/LLTO9PC">
+										<div class="dark"></div>
+										<div class="image_below_dark"></div>
+										<div class="related_top_content_title">2022 서울 인기 맛집 TOP 100</div>
+										<div class="related_top_content_content">"망고플레이트가 선정한 2022년에 꼭 가봐야 <br/>할 서울 인기 맛집"</div>
+									</a>
+								</div>
+								<div class="fl related_top_content4">
+									<a href="https://www.mangoplate.com/top_lists/PVRODEM">
+										<div class="dark"></div>
+										<div class="image_below_dark"></div>
+										<div class="related_top_content_title">강남역 해장 맛집 베스트 10곳</div>
+										<div class="related_top_content_content">"숙취해소엔 역시 이만한 게 없지!"</div>
+									</a>
+								</div>
+								<div style="clear:both;"></div>
+							</div>	
+						</div>	<!-- related_list out -->
+					</div>
+				</div>	<!-- related top out -->
+				<div id="related_story">
+					<div class="related_story_title">관련 스토리</div>
+						<div>
+							<div class="related_story_list">
+								<div class="related_story_item">							
+									<div class="fl related_story_content1">
+										<a href="https://www.mangoplate.com/mango_picks/2441">
+											<div class="dark"></div>
+											<div class="image_below_dark"></div>
+											<div class="related_story_content_title">강남역 근처 혼밥하기 좋은 곳 6</div>
+											<div class="related_story_content_content">"혼자서도 맛있게 잘 먹어요!"</div>
+										</a>
+									</div>
+									<div class="fl related_story_content2">
+										<a href="https://www.mangoplate.com/mango_picks/2347">
+											<div class="dark"></div>
+											<div class="image_below_dark"></div>
+											<div class="related_story_content_title">에디터의 인생 해장 맛집 6곳</div>
+											<div class="related_story_content_content">"6년차 망고 에디터의 인생 맛집 공개!"</div>
+										</a>
+									</div>
+									<div style="clear:both;"></div>
+								</div>	
+								<div class="related_story_item">							
+									<div class="fl related_story_content3">
+										<a href="https://www.mangoplate.com/mango_picks/2316">
+											<div class="dark"></div>
+											<div class="image_below_dark"></div>
+											<div class="related_story_content_title">전국 국밥 성지순례 7곳</div>
+											<div class="related_story_content_content">"한국인의 소울푸드!"</div>
+										</a>
+									</div>
+									<div class="fl related_story_content4">
+										<a href="https://www.mangoplate.com/mango_picks/2172">
+											<div class="dark"></div>
+											<div class="image_below_dark"></div>
+											<div class="related_story_content_title">에디터의 인생 국밥 7곳</div>
+											<div class="related_story_content_content">"이제 나랑 평생 가는거다!"</div>
+										</a>
+									</div>
+									<div style="clear:both;"></div>
+								</div>
+							</div>	<!-- related_list out -->
+						</div>
+					</div>	<!-- related_story out -->
+			</div>	<!-- header3 out -->
+		</div>	<!-- title out -->
+		<!-- map in-->
+		<div class="fl side">
+			<div class="map">
+				<img src="../Images/map.png">
+			</div>
+			<!-- map out-->
+			<div id="side_body">
+				<div class="near_restaurant">
+					<div class="near_title">주변 인기 식당</div>
+					<div class="near_items">
+						<div class="near_content">
+							<div>
+								<a href="https://www.mangoplate.com/restaurants/t_t308ONIJ"><img class="fl near_img" src="https://mp-seoul-image-production-s3.mangoplate.com/189144/796384_1669816629143_66677?fit=around|383:383&crop=383:383;*,*&output-format=jpg&output-quality=80"></a>
+								<div class="fl near_content_inner">
+									<div class="near_content_inner_box">
+										<a href="https://www.mangoplate.com/restaurants/t_t308ONIJ"><div class="fl near_name">강남불백</div></a>
+										<div class="fl near_score">4.0</div>
+										<div style="clear:both;"></div>
+									</div>
+									<div class="near_content_inner_box">
+										<div class="fl near_category1">음식 종류:</div>
+										<div class="fl near_category2">한정식 / 백반 / 정통 한식</div>
+										<div style="clear:both;"></div>
+									</div>
+									<div class="near_content_inner_box">
+										<div class="fl near_category1">위치:</div>
+										<div class="fl near_category2">강남역</div>
+										<div style="clear:both;"></div>
+									</div>
+									<div class="near_content_inner_box">
+										<div class="fl near_category1">가격대:</div>
+										<div class="fl near_category2">만원 미만</div>
+										<div style="clear:both;"></div>
+									</div>
+								</div>
+								<div style="clear:both;"></div>
+							</div>
+						</div>
+						<div class="near_content">
+							<div>
+							<a href="https://www.mangoplate.com/restaurants/b3AS64v3RHw4"><img class="fl near_img" src="https://mp-seoul-image-production-s3.mangoplate.com/722502_1578073271302805.jpg?fit=around|383:383&crop=383:383;*,*&output-format=jpg&output-quality=80"></a>
+								<div class="fl near_content_inner">
+									<div class="near_content_inner_box">
+										<a href="https://www.mangoplate.com/restaurants/b3AS64v3RHw4"><div class="fl near_name">제주몬트락</div></a>
+										<div class="fl near_score">3.9</div>
+										<div style="clear:both;"></div>
+									</div>
+									<div class="near_content_inner_box">
+										<div class="fl near_category1">음식 종류:</div>
+										<div class="fl near_category2">고기 요리</div>
+										<div style="clear:both;"></div>
+									</div>
+									<div class="near_content_inner_box">
+										<div class="fl near_category1">위치:</div>
+										<div class="fl near_category2">강남역</div>
+										<div style="clear:both;"></div>
+									</div>
+									<div class="near_content_inner_box">
+										<div class="fl near_category1">가격대</div>
+										<div class="fl near_category2">2만원~3만원</div>
+										<div style="clear:both;"></div>
+									</div>
+								</div>
+								<div style="clear:both;"></div>
+							</div>
+						</div>
+						<div class="near_content">
+							<div>
+								<a href="https://www.mangoplate.com/restaurants/mh1B2feJS4Er"><img class="fl near_img" src="https://mp-seoul-image-production-s3.mangoplate.com/26472_1571943700699021.jpg?fit=around|383:383&crop=383:383;*,*&output-format=jpg&output-quality=80"></a>
+								<div class="fl near_content_inner">
+									<div class="near_content_inner_box">
+										<a href="https://www.mangoplate.com/restaurants/mh1B2feJS4Er"><div class="fl near_name">중경마라탕</div></a>
+										<div class="fl near_score">4.1</div>
+										<div style="clear:both;"></div>
+									</div>
+									<div class="near_content_inner_box">
+										<div class="fl near_category1">움식 종류:</div>
+										<div class="fl near_category2">기타 중식</div>
+										<div style="clear:both;"></div>
+									</div>
+									<div class="near_content_inner_box">
+										<div class="fl near_category1">위치:</div>
+										<div class="fl near_category2">강남역</div>
+										<div style="clear:both;"></div>
+									</div>
+									<div class="near_content_inner_box">
+										<div class="fl near_category1">가격대:</div>
+										<div class="fl near_category2">만원~2만원</div>
+										<div style="clear:both;"></div>
+									</div>
+								</div>
+								<div style="clear:both;"></div>
+							</div>
+						</div>
+						<div class="near_content">
+							<div>
+								<a href="https://www.mangoplate.com/restaurants/q7AoiTJU2SJH"><img class="fl near_img" src="https://mp-seoul-image-production-s3.mangoplate.com/1240998_1646622152882030.jpg?fit=around|383:383&crop=383:383;*,*&output-format=jpg&output-quality=80"></a>
+								<div class="fl near_content_inner">
+									<div class="near_content_inner_box">
+										<a href="https://www.mangoplate.com/restaurants/q7AoiTJU2SJH"><div class="fl near_name">세광양대창</div></a>
+										<div class="fl near_score">4.0</div>
+										<div style="clear:both;"></div>
+									</div>
+									<div class="near_content_inner_box">
+										<div class="fl near_category1">음식 종류:</div>
+										<div class="fl near_category2">고기 요리</div>
+										<div style="clear:both;"></div>
+									</div>
+									<div class="near_content_inner_box">
+										<div class="fl near_category1">위치:</div>
+										<div class="fl near_category2">강남역</div>
+										<div style="clear:both;"></div>
+									</div>
+									<div class="near_content_inner_box">
+										<div class="fl near_category1" >가격대:</div>
+										<div class="fl near_category2">만원~2만원</div>
+										<div style="clear:both;"></div>
+									</div>
+								</div>	<!-- near_content_inner out -->
+								<div style="clear:both;"></div>
+							</div>
+						</div><!-- near_content out  -->
+					</div>	<!-- near_item out -->
+				</div>	<!-- near_restaurant out -->
+				<div class="related_hashtag">
+					<div class="hashtag_title">이 식당 관련 태그</div>
+					<div class="hashtag_items">
+						<div class="fl hashtag_box">
+							<a href="https://www.mangoplate.com/search/%EC%97%90%EB%94%94%ED%84%B0">
+								<div class="hashtag">#에디터</div>
+							</a>
+						</div>
+						<div class="fl hashtag_box">
+							<a href="https://www.mangoplate.com/search/2018%20%EC%9D%B8%EA%B8%B0">
+								<div class="hashtag">#2018 인기</div>
+							</a>
+						</div>		
+						<div class="fl hashtag_box">
+							<a href="https://www.mangoplate.com/search/%EC%88%9C%EB%8C%80%EA%B5%AD%EB%B0%A5">
+								<div class="hashtag">#순대국밥</div>
+							</a>
+						</div>
+						<div class="fl hashtag_box">
+							<a href="https://www.mangoplate.com/search/2020%EB%A7%9D%EA%B3%A0%ED%94%8C%EB%A0%88%EC%9D%B4%ED%8A%B8%EC%9D%B8%EA%B8%B0%EB%A7%9B%EC%A7%91">
+								<div class="hashtag">#2020망고플레이트인기맛집</div>
+							</a>
+						</div>		
+						<div class="fl hashtag_box">
+							<a href="https://www.mangoplate.com/search/Gangnam%20Station">
+								<div class="hashtag">#Gangnam Station</div>
+							</a>
+						</div>
+						<div class="fl hashtag_box">
+							<a href="https://www.mangoplate.com/search/2022%EB%A7%9D%EA%B3%A0%ED%94%8C%EB%A0%88%EC%9D%B4%ED%8A%B8%EC%9D%B8%EA%B8%B0%EB%A7%9B%EC%A7%91">
+								<div class="hashtag">#2022망고플레이트인기맛집</div>
+							</a>
+						</div>		
+						<div class="fl hashtag_box">
+							<a href="https://www.mangoplate.com/search/%ED%95%B4%EC%9E%A5%EA%B5%AD">
+								<div class="hashtag">#해장국</div>
+							</a>
+						</div>		
+						<div class="fl hashtag_box">
+							<a href="https://www.mangoplate.com/search/%EA%B0%95%EB%82%A8%EC%97%AD">
+								<div class="hashtag">#강남역</div>
+							</a>
+						</div>		
+						<div style="clear:both;"></div>
+					</div>
+				</div>
+			</div>	<!-- side_body out -->
+		</div> <!--  side out -->
+		<div style="clear:both;"></div>
+	</div>	<!-- column-contents out -->
+	<div class="footer">
+		<div class="footer_inner">
+			<div class="footer_logo">
+				<img class="footer_logo_img" src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/mangoplate-gray-logo.svg">
+				<div class="footer_logo_subtitle">Eat, Share, Be Happy.</div>
+			</div>
+			<div class="footer_content">
+				<div class="fl footer_content_item">
+					<div class="footer_content_name">회사소개</div>			
+					<div class="footer_content_name">망고플레이트 채용</div>			
+					<div class="footer_content_name">투자 정보</div>			
+					<div class="footer_content_name">브랜드 가이드라인</div>			
+					<div class="footer_content_name">망고플레이트 비즈니스</div>			
+					<div class="footer_content_name">광고 문의</div>			
+				</div>
+				<div class="fl footer_content_item">
+					<div class="footer_content_name">공지사항</div>			
+					<div class="footer_content_name">이용약관</div>			
+					<div class="footer_content_name">비회원 이용자 이용정책</div>			
+					<div class="footer_content_name">개인정보처리방침</div>			
+					<div class="footer_content_name">위치기반서비스 이용약관</div>			
+					<div class="footer_content_name">커뮤니티 가이드라인</div>			
+					<div class="footer_content_name">청소년보호정책</div>			
+					<div class="footer_content_name">홀릭 소개</div>			
+					<div class="footer_content_name">문의하기</div>			
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+			<div class="footer_sns">
+				<img class="fl footer_sns_img" src="../Images/icon_facebook.png">
+				<img class="fl footer_sns_img" src="../Images/icon_instargram.png">
+				<div style="clear:both;"></div>
+			</div>
+			<div class="footer_location">
+				<div class="fl footer_location_item">인기지역&nbsp:&nbsp</div> 
+				<div class="fl footer_location_item">이태원&nbsp|&nbsp</div> 
+				<div class="fl footer_location_item">홍대&nbsp|&nbsp</div> 
+				<div class="fl footer_location_item">강남역&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">가로수길&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">신촌&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">명동&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">대학로&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">연남동&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">부산&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">합정&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">대구&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">여의도&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">건대&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">광화문&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">일산&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">제주&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">경리단길&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">한남동&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">삼청동&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">대전&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">종로&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">서촌&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">잠실&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">사당역&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">인천</div>
+				<div class="fl footer_location_item">|&nbsp코엑스&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">상수&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">서래마을&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">송도&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">왕십리&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">분당&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">혜화&nbsp|&nbsp</div>
+				<div class="fl footer_location_item">고속터미널</div>
+				<div style="clear:both;"></div>
+			</div>
+			<div class="footer_copyrights">
+				<div class="fr footer_copyrights_language">
+					<div class="fl language">한국어</div>
+					<div class="fl language">&nbsp&nbsp|&nbsp&nbsp English &nbsp&nbsp|&nbsp&nbsp</div>
+					<div class="fl language">简体中文</div>
+					<div style="clear:both;"></div>
+				</div>
+				<p class="fl">
+					㈜ 여기어때컴퍼니<br/>
+					서울특별시 강남구 봉은사로 479, 479타워 11층<br/>
+					대표이사: 정명훈<br/>
+					사업자 등록번호: 742-86-00224 [<u style="font-weight: 700;">사업자정보확인</u>]<br/>
+					통신판매업 신고번호: 2017-서울강남-01779<br/>
+					고객센터: 02-565-5988<br/>
+					<br/>
+					© 2022 MangoPlate Co., Ltd. All rights reserved.
+				</p>
+				
+				<div style="clear:both;"></div>
+			</div>
+		</div><!-- footer_inner out -->
+	</div>	<!-- footer out -->
+</body>
+</html>
