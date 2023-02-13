@@ -1,0 +1,270 @@
+.top_bener {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    width: 100%;
+    height: 61px;
+    border-bottom: 1px solid #DBDBDB;
+    box-sizing: border-box;
+    box-shadow: 0 4px 11px rgb(0 0 0 / 10%);
+    background-color: #FFFFFF;
+    display: inline-block;
+}
+
+.top_logo {
+    text-decoration: none;
+    margin: 0 25px;
+    display: inline-block;
+    height: 33px;
+    width: 100px;
+    margin: 10px 25px;
+    text-decoration: none;
+}
+
+.bener_logo {
+    width: 100px;
+    height: 33px;
+    background-image: url(Images/logo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    height: 33px;
+    width: 106px;
+}
+
+.search_ikon_bener {
+    padding-left: 27px;
+    display: inline;
+    height: 27px;
+    width: 866.2px;
+
+}
+
+.search_ikon {
+    background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/web/resources/2018022864551sprites_desktop.png);
+    background-position: -974px -159px;
+    margin-right: 13px;
+    background-size: auto;
+    display: inline-block;
+    height: 25px;
+    width: 24px;
+    margin-bottom: 3px;
+}
+
+.search_box {
+    overflow: hidden;
+    display: inline-block;
+    height: 27px;
+    width: 829.2px;
+    margin-bottom: 3px;
+}
+
+.search_box_letter {
+    border: 0;
+    font-size: 16px;
+    display: inline-block;
+    width: 829.2px;
+    height: 27px;
+    outline: none;
+}
+
+.three_menu {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+    text-align: center;
+    position: absolute;
+    display: inline-block;
+}
+
+.eat_deal_bener {
+    width: 130px;
+    border-left: 1px solid #dbdbdb;
+    box-sizing: border-box;
+    height: 60px;
+    display: inline-block;
+}
+
+.bener_text {
+    position: relative;
+    font-size: 16px;
+    color: #888888;
+    top: 18px;
+
+}
+
+.bener_text1 {
+    position: relative;
+    font-size: 16px;
+    color: #888888;
+    top: 18px;
+
+}
+
+.bener_text::after {
+    content: '';
+    position: absolute;
+    top: -11px;
+    right: -11px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/web/resources/uo3o88vopcmdsket.png);
+    background-size: cover;
+}
+
+.user_ikon_box {
+    width: 85px;
+    height: 100%;
+    border-left: 1px solid #dbdbdb;
+    cursor: pointer;
+    display: inline-block;
+}
+
+button {
+    appearance: none;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.profile {
+    background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/web/resources/2018022864551sprites_desktop.png);
+    background-position: -82px -919px;
+    width: 34px;
+    height: 34px;
+    display: block;
+}
+
+.Triangle {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    width: 0;
+    border-width: 0 16px 16px;
+    border-color: #FFFFFF transparent;
+    border-style: solid;
+}
+
+.bener_box {
+    position: fixed;
+    top: 72px;
+    right: 10px;
+    border-radius: 0 0 3px 3px;
+    background-color: #FFFFFF;
+    height: 532px;
+    width: 320px;
+    z-index: 1100;
+    position: fixed;
+}
+
+.Two_button {
+    border-bottom: 0;
+    box-shadow: inset 0 -3px #ff792a;
+    color: #ff792a;
+    height: 50px;
+    width: 156px;
+    font-size: 16px;
+}
+
+button {
+    appearance: none;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.button_font {
+    width: 100%;
+    border-bottom: 1px solid #DBDBDB;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+    color: #9b9b9b;
+    height: 50px;
+    width: 156px;
+}
+
+.AllClear_Button {
+    margin-left: auto;
+    font-size: 11px;
+    line-height: 19px;
+    color: #dbdbdb;
+    margin-left: 233px;
+    display: inline-block;
+}
+
+.Res_Name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    font-size: 16px;
+    color: #000000;
+    font-weight: normal;
+    margin-top: 0px;
+    width: 92px;
+    float: left;
+    margin: 0;
+}
+
+ol,
+ul,
+ul li {
+    list-style: none;
+}
+
+.Score {
+    margin-left: 5px;
+    font-size: 16px;
+    color: #ff792a;
+}
+
+.Res_Pic {
+    width: 70px;
+    height: 70px;
+    margin-right: 16px;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-color: #E6E6E6;
+    background-position: 50%;
+    display: inline-block;
+}
+
+.Black-out {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.Login_Button {
+    display: none;
+    width: 100%;
+    height: 50px;
+    border: 2px solid #ff792a;
+    border-radius: 50px;
+    font-size: 16px;
+    color: #FF7100;
+}
+
+.My_Info {
+    /* display: none; */
+    margin-left: auto;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #7f7f7f;
+}
